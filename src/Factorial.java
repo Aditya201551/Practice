@@ -1,18 +1,27 @@
-import java.util.*;
 public class Factorial {
-
-    int fact(int n) {
-        if (n <= 1)
-            return 1;
-        else
-            return n * fact(n-1);
-    }
-    public static void main(String args[])
+    int n;
+    Factorial()
     {
-        Scanner sc=new Scanner(System.in);
-        Factorial ob=new Factorial();
-        System.out.print("Enter a number: ");
-        int n=sc.nextInt();
-        System.out.println("Factorial is: "+ob.fact(n));
+        n=5;
+    }
+
+    Factorial(int n)
+    {
+        this.n=n;
+    }
+
+    int fact()
+    {
+        int result=1;
+        for(int i=1;i<=n;i++)
+            result*=i;
+        return result;
+    }
+    public static void main(String[] args)
+    {
+        Factorial a=new Factorial();
+        Factorial b=new Factorial(10);
+        System.out.println("Non parameter: "+a.fact());
+        System.out.println("Parameter: "+b.fact());
     }
 }
