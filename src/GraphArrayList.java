@@ -1,7 +1,7 @@
 //Graph using ArrayList and HashSet
 
 import java.util.*;
-public class Graph {
+public class GraphArrayList {
 
     void addEdge(ArrayList<HashSet<Integer>> graph, int u, int v) {
         graph.get(u).add(v);
@@ -56,7 +56,7 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        Graph ob = new Graph();
+        GraphArrayList ob = new GraphArrayList();
         ArrayList<HashSet<Integer>> graph = new ArrayList<>();
         int[][] node = {{0, 1}, {0, 4}, {1, 2}, {1, 3}, {1, 4}, {2, 3}, {3, 4}};
         int numberOFNodes = 5;
