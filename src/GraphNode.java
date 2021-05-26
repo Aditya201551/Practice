@@ -5,13 +5,13 @@ class GraphNode
     class vertex
     {
         vertex next;
-        HashSet<vertex> edge=new HashSet<>();
+        HashSet<vertex> edge;
         int weight;
         vertex(int weight)
         {
             this.weight = weight;
             next=null;
-            edge=null;
+            edge=new HashSet<>();
         }
     }
 
@@ -57,6 +57,7 @@ class GraphNode
             return;
         }
         originVertex.edge.add(destVertex);
+        destVertex.edge.add(originVertex);
     }
 
     void deleteVertex(int vertex)
@@ -67,8 +68,6 @@ class GraphNode
             return;
         }
         size--;
-        if (head == null)
-            return;
 
         vertex temp = head;
 
@@ -85,9 +84,49 @@ class GraphNode
 
         if (temp == null || temp.next == null)
             return;
-        
-        vertex next = temp.next.next;
 
-        temp.next = next;
+
+        //scanning every node and deleting the edge connected from this vertex
+        vertex v=head;
+        while(v!=null)
+        {
+            if(v.edge.contains(temp.next))
+                v.edge.remove(temp.next);
+            v=v.next;
+        }
+
+        temp.next = temp.next.next;
     }
+
+    void deleteEdge(int u, int v)
+    {
+        if(head==null) {
+            System.out.println("Graph is empty");
+            return;
+        }
+        vertex originVertex=head;
+        while(originVertex!=null && originVertex.weight!=u)
+            originVertex=originVertex.next;
+
+        if(originVertex==null)
+        {
+            System.out.println("Cannot connect edge: INVALID vertex: INVALID origin vertex(u)");
+            return;
+        }
+
+
+        vertex destVertex=head;
+        while(destVertex!=null && destVertex.weight!=v)
+            destVertex=destVertex.next;
+
+        if(destVertex==null)
+        {
+            System.out.println("Cannot connect edge: INVALID vertex: INVALID destination vertex(v)");
+            return;
+        }
+
+        originVertex.edge.remove(destVertex);
+        destVertex.edge.remove(originVertex);
+    }
+
 }
