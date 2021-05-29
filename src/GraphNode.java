@@ -30,7 +30,7 @@ class GraphNode {
 
     void addEdge(int u, int v) {
         if (head == null) {
-            System.out.println("Graph is empty");
+            System.out.println("BreadthFirstSearch is empty");
             return;
         }
         vertex originVertex = head;
@@ -57,7 +57,7 @@ class GraphNode {
 
     void deleteVertex(int vertex) {
         if (head == null || (vertex < 0 || vertex > size)) {
-            System.out.println("Graph is empty: Cannot delete an empty graph | INVALID vertex");
+            System.out.println("BreadthFirstSearch is empty: Cannot delete an empty graph | INVALID vertex");
             return;
         }
         size--;
@@ -91,7 +91,7 @@ class GraphNode {
 
     void deleteEdge(int u, int v) {
         if (head == null) {
-            System.out.println("Graph is empty");
+            System.out.println("BreadthFirstSearch is empty");
             return;
         }
         vertex originVertex = head;
@@ -151,14 +151,15 @@ class GraphNode {
     {
         GraphNode ob=new GraphNode();
 //        ob.print();
-        for(int i=0;i<5;i++)
+        for(int i=0;i<6;i++)
             ob.addVertex(i);
-        int[][] node = {{0, 1}, {0, 4}, {1, 2}, {1, 3}, {1, 4}, {2, 3}, {3, 4}};
+        int[][] node = {{0, 1}, {0, 4}, {1, 2}, {1, 3}, {1, 4}, {2, 3}, {3, 4},{5,1},{2,5},{4,5},{5,0}};
         for (int[] i : node)
             ob.addEdge(i[0], i[1]);
         ob.print();
-        ob.deleteVertex(4);
+        ob.deleteVertex(2);
         ob.print();
-//        ob.checkConnections();
+//        ob.deleteEdge(0,4);
+//        ob.print();
     }
 }

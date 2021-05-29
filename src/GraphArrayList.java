@@ -1,4 +1,4 @@
-//Graph using ArrayList and HashSet
+//BreadthFirstSearch using ArrayList and HashSet
 
 import java.util.*;
 public class GraphArrayList {
@@ -10,7 +10,7 @@ public class GraphArrayList {
 
     void deleteEdge(ArrayList<HashSet<Integer>> graph, int u, int v) {
         if (graph.isEmpty()) {
-            System.out.println("Graph is empty!");
+            System.out.println("BreadthFirstSearch is empty!");
             return;
         }
 //        System.out.println(graph.get(u));
