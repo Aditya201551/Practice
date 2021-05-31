@@ -39,7 +39,7 @@ public class BreadthFirstSearch {
         LinkedList<Integer> queue=new LinkedList<>();
         queue.add(s);
 
-        while(queue.size()!=0)
+        while(!queue.isEmpty())
         {
 //            System.out.println(queue);
             s=queue.poll();
