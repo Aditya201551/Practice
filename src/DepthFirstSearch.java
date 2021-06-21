@@ -23,15 +23,11 @@ public class DepthFirstSearch {
             {
                 System.out.print(v+" ");
                 visited[v]=true;
-                /*for(boolean i:visited)
-                    System.out.print(i+" ");*/
             }
             Iterator<Integer> i=graph.get(v).iterator();
-//            System.out.println(i.next());
             while(i.hasNext())
             {
                 int n=i.next();
-//                System.out.println("|"+n+"|");
                 if(!visited[n])
                     stack.push(n);
             }
